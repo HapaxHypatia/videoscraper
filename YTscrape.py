@@ -13,9 +13,8 @@ urls = [
 'https://www.youtube.com/@digiSchool-college/videos'
 ]
 
-url = "https://www.youtube.com/@frenchpod101/videos"
 driver = webdriver.Chrome(ChromeDriverManager().install())
-contents =  []
+contents = []
 for url in urls:
 	driver.get(url)
 
@@ -33,7 +32,7 @@ for url in urls:
 		# get data
 		title = video.find_element(by=By.XPATH, value='.//*[@id="video-title"]').text
 		image = video.find_element(by=By.XPATH, value='.//*[@id="thumbnail"]/yt-image/img').get_attribute('src')
-		link = video.find_element(by=By.XPATH, value='.//*[@id="video-title-link"]').text
+		link = video.find_element(by=By.XPATH, value='.//*[@id="video-title-link"]').get_attribute('href')
 		date = video.find_element(by=By.XPATH, value='.//*[@id="metadata-line"]/span[2]').text
 
 		contents.append(
@@ -45,7 +44,8 @@ for url in urls:
 			}
 
 		)
+	print(url, " complete.")
 
-with open('data.json', 'w') as f:
+with open('C:\projects\listening-search\src\ytdata.json', 'w') as f:
 	json.dump(contents,f)
 driver.close()

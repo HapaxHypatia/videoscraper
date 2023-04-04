@@ -19,7 +19,7 @@ def YTscrape(driver):
 		image = video.find_element(by=By.XPATH, value='.//*[@id="thumbnail"]/yt-image/img').get_attribute('src')
 		link = video.find_element(by=By.XPATH, value='.//*[@id="video-title-link"]').get_attribute('href')
 		date = video.find_element(by=By.XPATH, value='.//*[@id="metadata-line"]/span[2]').text
-		years = int(re.findall("\d+", date)[0])
+		years = int(re.findall("\d+", date)[0]) # skip videos older than 5 years
 		if years > 5:
 			continue
 

@@ -4,6 +4,7 @@ import json
 from YTscrape import YTscrape
 from lawlessScrape import LFscrape
 from CBFscrape import CBFscrape
+from FLEscrape import FLEscrape
 
 
 with open("urls.txt", 'r') as f:
@@ -21,16 +22,21 @@ for url in urls:
 		data = data+YTdata
 	if "lawlessfrench" in url:
 		LFdata = LFscrape(driver)
-		print(len(YTdata), " videos found at ", url)
+		print(len(LFdata), " videos found at ", url)
 		data = data+LFdata
 	if "coffeebreaklanguages" in url:
 		CBFdata = CBFscrape(driver)
-		print(len(YTdata), " videos found at ", url)
+		print(len(CBFdata), " videos found at ", url)
 		data = data+CBFdata
+	if "flevideo" in url:
+		FLEdata = FLEscrape(driver, url)
+		print(len(FLEdata), " videos found at ", url)
+		data = data+FLEdata
 
 print("Total videos found = ", len(data))
 with open('C:\projects\listening-search\src\data.json', 'w') as f:
 	json.dump(data, f)
+print("Video data saved.")
 driver.close()
 
 

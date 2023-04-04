@@ -20,10 +20,10 @@ def FLEscrape(driver, url):
 			contents.append(
 				{
 					"title": title,
+					"channel": "FLE Video",
 					"image": image,
 					"link": link,
 				}
 
 			)
-	print("Total videos found at ", url, " = ", len(contents))
 	return contents

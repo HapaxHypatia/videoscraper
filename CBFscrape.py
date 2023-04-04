@@ -13,6 +13,7 @@ def CBFscrape(driver):
 		contents.append(
 			{
 				"title": title,
+				"channel": "Coffee Break French",
 				"image": image,
 				"link": link,
 				"description": description

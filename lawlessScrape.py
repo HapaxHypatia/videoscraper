@@ -26,6 +26,7 @@ def LFscrape(driver):
 		contents.append(
 			{
 				"title": title,
+				"channel": "Lawless French",
 				"image": image,
 				"link": link,
 				"description": description

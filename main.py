@@ -5,7 +5,7 @@ from YTscrape import YTscrape
 from lawlessScrape import LFscrape
 from CBFscrape import CBFscrape
 from FLEscrape import FLEscrape
-
+from TEFscrape import TEFscrape
 
 with open("urls.txt", 'r') as f:
 	urls = [x.strip() for x in f.readlines()]
@@ -16,7 +16,7 @@ for url in urls:
 	driver.get(url)
 	print('Looking for videos at ', url)
 	if "youtube" in url:
-		YTdata = YTscrape(driver)
+		YTdata = YTscrape(driver, url)
 		print(len(YTdata), " videos found at ", url)
 		print("Data collection complete.")
 		data = data+YTdata
@@ -32,6 +32,10 @@ for url in urls:
 		FLEdata = FLEscrape(driver, url)
 		print(len(FLEdata), " videos found at ", url)
 		data = data+FLEdata
+	if "toutenfrancais" in url:
+		TEFdata = TEFscrape(driver)
+		print(len(TEFdata), " videos found at ", url)
+		data = data+TEFdata
 
 print("Total videos found = ", len(data))
 with open('C:\projects\listening-search\src\data.json', 'w') as f:

@@ -6,6 +6,7 @@ from lawlessScrape import LFscrape
 from CBFscrape import CBFscrape
 from FLEscrape import FLEscrape
 from TEFscrape import TEFscrape
+from unjourScrape import unjourScrape
 
 with open("urls.txt", 'r') as f:
 	urls = [x.strip() for x in f.readlines()]
@@ -36,6 +37,12 @@ for url in urls:
 		TEFdata = TEFscrape(driver)
 		print(len(TEFdata), " videos found at ", url)
 		data = data+TEFdata
+	if "1jour" in url:
+		unjourdata = unjourScrape(driver)
+		print(len(unjourdata), " videos found at ", url)
+		data = data+unjourdata
+
+
 
 print("Total videos found = ", len(data))
 with open('C:\projects\listening-search\src\data.json', 'w') as f:

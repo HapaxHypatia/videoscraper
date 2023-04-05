@@ -18,8 +18,10 @@ def TEFscrape(driver):
 			link = video.find_element(by=By.XPATH, value='.//div/div[1]/div[1]/a[2]').get_attribute('href')
 			title = link.split('/')[3].replace('-', ' ')
 			description = video.find_element(by=By.XPATH, value='.//li/div/div[1]/div[2]/p[2]').text
-			tags = video.find_elements(by=By.XPATH, value='//*[@id="hits"]/div/div/ol/li[1]/li/div/div[1]/div[2]/p[3]/span[1]')
-
+			tagElements = video.find_elements(by=By.XPATH, value='//*[@id="hits"]/div/div/ol/li[1]/li/div/div[1]/div[2]/p[3]/span[1]')
+			tags = []
+			for elem in tagElements:
+				tags.append(elem.text)
 			if not any(d['title'] == title for d in contents):
 				contents.append(
 					{

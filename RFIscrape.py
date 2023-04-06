@@ -32,7 +32,6 @@ def RFIscrape(driver):
 		try:
 			nextPage = driver.find_element(by=By.XPATH, value='//*/a[@title="Next page"]')
 			driver.execute_script('arguments[0].click()', nextPage)
-			print("Clicked next page")
 			time.sleep(4)
 		except (NoSuchElementException, ElementNotInteractableException):
 			break

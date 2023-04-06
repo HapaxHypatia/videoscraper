@@ -3,6 +3,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import json
 from PFFscrape import PFFscrape
 from RFIscrape import RFIscrape
+from TV5scrape import TV5scrape
 from YTscrape import YTscrape
 from lawlessScrape import LFscrape
 from CBFscrape import CBFscrape
@@ -64,6 +65,11 @@ for url in urls:
 		RFIdata = RFIscrape(driver)
 		print(len(RFIdata), " videos found at ", url)
 		data = data + RFIdata
+		json.dump(data, f)
+	if "tv5" in url:
+		TV5data = TV5scrape(driver)
+		print(len(TV5data), " videos found at ", url)
+		data = data + TV5data
 		json.dump(data, f)
 
 print("Total videos found = ", len(data))

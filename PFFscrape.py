@@ -18,7 +18,6 @@ def PFFscrape(driver):
 	for video in videos:
 		# get data
 		title = video.text
-		print(title)
 		link = video.get_attribute('href')
 		contents.append(
 			{

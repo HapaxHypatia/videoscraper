@@ -8,10 +8,10 @@ def TEFscrape(driver):
 	while True:
 		time.sleep(5)
 		videos = driver.find_elements(by=By.XPATH, value='//*[@id="hits"]/div/div/ol/li')
-		print("Total Videos = ", len(videos))
 		if len(videos) > num_videos:
 			num_videos = len(videos)
 		else:
+			print("Total Videos = ", len(videos))
 			break
 		for video in videos:
 			image = video.find_element(by=By.CLASS_NAME, value='search-thumbnail').get_attribute('src')

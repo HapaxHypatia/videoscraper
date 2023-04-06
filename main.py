@@ -3,6 +3,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import json
 
 from PFFscrape import PFFscrape
+from RFIscrape import RFIscrape
 from YTscrape import YTscrape
 from lawlessScrape import LFscrape
 from CBFscrape import CBFscrape
@@ -12,7 +13,10 @@ from unjourScrape import unjourScrape
 
 with open("urls.txt", 'r') as f:
 	urls = [x.strip() for x in f.readlines()]
-driver = webdriver.Chrome(ChromeDriverManager().install())
+
+options = webdriver.ChromeOptions()
+options.add_argument("start-maximized")
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 driver.set_page_load_timeout(60)
 data = []
 f = open('C:\projects\listening-search\src\data.json', 'w')
@@ -56,6 +60,11 @@ for url in urls:
 		PFFdata = PFFscrape(driver)
 		print(len(PFFdata), " videos found at ", url)
 		data = data + PFFdata
+		json.dump(data, f)
+	if "rfi" in url:
+		RFIdata = RFIscrape(driver)
+		print(len(RFIdata), " videos found at ", url)
+		data = data + RFIdata
 		json.dump(data, f)
 
 print("Total videos found = ", len(data))

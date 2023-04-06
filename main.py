@@ -1,7 +1,6 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import json
-
 from PFFscrape import PFFscrape
 from RFIscrape import RFIscrape
 from YTscrape import YTscrape

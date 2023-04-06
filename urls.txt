@@ -1,3 +1,7 @@
+https://apprendre.tv5monde.com/fr/search/site?f%5B0%5D=im_field_competence%3A61&f%5B1%5D=im_field_competence%3A222&f%5B2%5D=im_field_niveau%3A371&f%5B3%5D=type_de_contenu%3Aserie_exercices
+https://apprendre.tv5monde.com/fr/search/site?f%5B0%5D=im_field_competence%3A61&f%5B1%5D=im_field_competence%3A222&f%5B2%5D=im_field_niveau%3A372&f%5B3%5D=type_de_contenu%3Aserie_exercices
+https://apprendre.tv5monde.com/fr/search/site?f%5B0%5D=im_field_competence%3A61&f%5B1%5D=im_field_competence%3A222&f%5B2%5D=im_field_niveau%3A373&f%5B3%5D=type_de_contenu%3Aserie_exercices
+https://apprendre.tv5monde.com/fr/search/site?f%5B0%5D=im_field_competence%3A61&f%5B1%5D=im_field_competence%3A222&f%5B2%5D=im_field_niveau%3A374&f%5B3%5D=type_de_contenu%3Aserie_exercices
 https://francaisfacile.rfi.fr/en/podcasts/journal-en-fran%C3%A7ais-facile/
 https://francaisfacile.rfi.fr/fr/podcasts/les-voisins-du-12-bis-en-fran%C3%A7ais-anglais/
 https://francaisfacile.rfi.fr/fr/podcasts/le-talisman-bris%C3%A9-the-podcast-in-french-english/
@@ -34,7 +38,6 @@ https://www.lawlessfrench.com/faq/lessons-by-level/a2-listening/
 https://www.lawlessfrench.com/faq/lessons-by-level/b1-listening/
 https://www.lawlessfrench.com/faq/lessons-by-level/b2-listening/
 https://www.lawlessfrench.com/faq/lessons-by-level/c1-listening/
-https://apprendre.tv5monde.com/fr/search/site?f%5B0%5D=im_field_competence%3A61&f%5B1%5D=im_field_competence%3A222&f%5B2%5D=type_de_contenu%3Aserie_exercices
 https://lafleiste.wordpress.com/tag/comprehension-orale/
 https://onethinginafrenchday.podbean.com/
 https://www.tolearnfrench.com/lessons/dialogues.php

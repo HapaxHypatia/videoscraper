@@ -25,7 +25,8 @@ def RFIscrape(driver):
 					"channel": "RFI français facile",
 					"image": image,
 					"link": link,
-					# "date": date
+					"description": "",
+					"date": ""
 				}
 
 			)

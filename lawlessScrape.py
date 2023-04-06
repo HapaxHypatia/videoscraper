@@ -3,11 +3,6 @@ from selenium.webdriver.common.by import By
 
 
 def LFscrape(driver):
-	# try:
-	#     driver.find_element(By.CLASS_NAME, 'cp-popup-content').click()
-	#     print('pop-up closed')
-	# except (NoSuchElementException, ElementNotInteractableException):
-	#     pass
 	videos = driver.find_elements(By.TAG_NAME, value='article')
 	print("Total Videos = ", len(videos))
 	contents = []
@@ -29,7 +24,8 @@ def LFscrape(driver):
 				"channel": "Lawless French",
 				"image": image,
 				"link": link,
-				"description": description
+				"description": description,
+				"date": ""
 			}
 
 		)

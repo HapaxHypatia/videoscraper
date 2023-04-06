@@ -29,9 +29,10 @@ def YTscrape(driver, url):
 		contents.append(
 			{
 				"title": title,
-				"image": image,
 				"channel": channel,
+				"image": image,
 				"link": link,
+				"description": "",
 				"date": date
 			}
 

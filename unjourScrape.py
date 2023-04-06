@@ -17,6 +17,8 @@ def unjourScrape(driver):
 				"channel": "Un jour une actu",
 				"image": image,
 				"link": link,
+				"description": "",
+				"date": ""
 			}
 
 		)

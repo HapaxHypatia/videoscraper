@@ -23,7 +23,10 @@ def PFFscrape(driver):
 			{
 				"title": title,
 				"channel": "Podcast Français Facile",
+				"image": "",
 				"link": link,
+				"description": "",
+				"date": ""
 			}
 		)
 	return contents

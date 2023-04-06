@@ -16,7 +16,8 @@ def CBFscrape(driver):
 				"channel": "Coffee Break French",
 				"image": image,
 				"link": link,
-				"description": description
+				"description": description,
+				"date": ''
 			}
 
 		)

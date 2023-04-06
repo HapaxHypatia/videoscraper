@@ -23,6 +23,8 @@ def FLEscrape(driver, url):
 					"channel": "FLE Video",
 					"image": image,
 					"link": link,
+					"description": "",
+					"date": ""
 				}
 
 			)

@@ -26,11 +26,12 @@ def TEFscrape(driver):
 				contents.append(
 					{
 						"title": title,
-						"image": image,
 						"channel": "Tout en Français",
+						"image": image,
 						"link": link,
 						"description": description,
-						"tags": tags
+						# "tags": tags
+						"date": ""
 					}
 					)
 		try:

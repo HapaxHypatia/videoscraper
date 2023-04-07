@@ -6,10 +6,12 @@ def YTscrape(driver, url):
 	channel = url.split('@')[1].replace("/videos", "")
 	print(channel)
 	# scroll page
-	for i in range(30):
+	for i in range(20):
 		document_height = driver.execute_script("return document.documentElement.scrollHeight")
-		driver.execute_script(f"window.scrollTo(0, {document_height	+ 2000});")
+		driver.execute_script(f"window.scrollTo(0, {document_height	+ 5000});")
+		print("scroll")
 		time.sleep(1)
+	time.sleep(3)
 
 	# get list of videos
 	videos = driver.find_elements(by=By.ID, value='dismissible')
@@ -26,6 +28,10 @@ def YTscrape(driver, url):
 			if years > 5:
 				break
 
+		if "Easy" in url:
+			level = "Beginner"
+		else:
+			level = ""
 		contents.append(
 			{
 				"title": title,
@@ -33,7 +39,8 @@ def YTscrape(driver, url):
 				"image": image,
 				"link": link,
 				"description": "",
-				"date": date
+				"date": date,
+				"level": level
 			}
 
 		)

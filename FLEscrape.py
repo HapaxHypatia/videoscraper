@@ -16,6 +16,14 @@ def FLEscrape(driver, url):
 			title = video.find_element(by=By.XPATH, value='.//a[2]').text
 			image = video.find_element(by=By.XPATH, value='.//img').get_attribute('src')
 			link = video.find_element(by=By.XPATH, value='.//a[2]').get_attribute('href')
+		if "low_intermediate" in url:
+			level = "A2"
+		if "high_intermediate" in url:
+			level  = 'B2'
+		if "quiz_intermediate" in url:
+			level = 'B1'
+		else:
+			level = "A1"
 
 			contents.append(
 				{
@@ -24,7 +32,8 @@ def FLEscrape(driver, url):
 					"image": image,
 					"link": link,
 					"description": "",
-					"date": ""
+					"date": "",
+					"level": level
 				}
 
 			)

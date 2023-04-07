@@ -17,6 +17,18 @@ def LFscrape(driver):
 		image = video.find_element(by=By.XPATH, value='.//img').get_attribute('src')
 		link = video.find_element(by=By.XPATH, value='.//header/h2').get_attribute('href')
 		description = video.find_element(by=By.CLASS_NAME, value='entry-summary').text
+		if "a1" in url:
+			level = "A1"
+		if "a2" in url :
+			level = 'A2'
+		if "b1" in url:
+			level = 'B1'
+		if "b2" in url:
+			level = 'B2'
+		if "c1" in url:
+			level = 'C1'
+		else:
+			level = ""
 
 		contents.append(
 			{

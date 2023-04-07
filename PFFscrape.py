@@ -9,7 +9,7 @@ def PFFscrape(driver):
 			for k in range(1, 5):
 				try:
 					videos = videos+(driver.find_elements(By.XPATH,
-					value=stem+str(i)+']/div/div['+str(j)+']/div/div['+str(k)+']/p/a'))
+					value = stem+str(i)+']/div/div['+str(j)+']/div/div['+str(k)+']/p/a'))
 				except NoSuchElementException:
 					continue
 

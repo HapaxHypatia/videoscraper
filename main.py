@@ -22,8 +22,12 @@ data = []
 
 
 def save(data):
+	unique = []
+	for i in range(len(data)):
+		if data[i] not in data[i + 1:]:
+			unique.append(data[i])
 	f = open('C:\projects\listening-search\src\data.json', 'w')
-	json.dump(data, f)
+	json.dump(unique, f)
 	f.close()
 
 

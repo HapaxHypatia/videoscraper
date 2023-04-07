@@ -43,9 +43,9 @@ def TV5scrape(driver):
 				"image": image,
 				"link": link,
 				"description": description,
-				# "level": level
-				"date": ""
-			}
+				"date": "",
+				"level": level
+		}
 
 		)
 

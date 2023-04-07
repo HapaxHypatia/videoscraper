@@ -13,6 +13,15 @@ def CBFscrape(driver, url):
 			link = video.find_element(by=By.XPATH, value='.//h3/a').get_attribute('href')
 			image = video.find_element(by=By.XPATH, value='.//img').get_attribute('src')
 			description = video.find_element(by=By.XPATH, value='.//*[@class="elementor-post__excerpt"]/p').text
+			if "cbf-season-1" in url:
+				level = "Beginner"
+			if "cbf-season-2" in url or "cbf-season-3" in url:
+				level = 'Intermediate'
+			if "cbf-season-4" in url:
+				level = 'Advanced'
+			else:
+				level = ""
+
 			videodata.append(
 				{
 					"title": title,
@@ -20,7 +29,8 @@ def CBFscrape(driver, url):
 					"image": image,
 					"link": link,
 					"description": description,
-					"date": ''
+					"date": '',
+					"level": level
 				}
 
 			)

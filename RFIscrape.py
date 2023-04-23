@@ -3,7 +3,7 @@ from selenium.common import NoSuchElementException, ElementNotInteractableExcept
 from selenium.webdriver.common.by import By
 
 
-def RFIscrape(driver):
+def RFIscrape(driver, url):
 	denyCookies = '/html/body/div[1]/div/div/div/div/div/div[3]/button[2]'
 	time.sleep(3)
 	try:

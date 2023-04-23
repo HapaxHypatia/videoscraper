@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException
 import time
 
-def TEFscrape(driver):
+def TEFscrape(driver, url):
 	contents = []
 	num_videos = 0
 	while True:
@@ -38,5 +38,6 @@ def TEFscrape(driver):
 			loadmore = driver.find_element(by=By.XPATH, value='//*[@id="hits"]/div/div/button')
 			driver.execute_script('arguments[0].click()', loadmore)
 		except (NoSuchElementException, ElementNotInteractableException):
+			print('loadmore button not found')
 			break
 	return contents

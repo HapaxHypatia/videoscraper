@@ -1,7 +1,7 @@
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
-def PFFscrape(driver):
+def PFFscrape(driver, url):
 	stem = '/html/body/div[1]/div/main/div/section/div/div/div['
 	videos = []
 	for i in range(1, 5):

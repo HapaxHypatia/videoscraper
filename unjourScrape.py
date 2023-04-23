@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 import time
 
-def unjourScrape(driver):
+def unjourScrape(driver, url):
 	videos = driver.find_elements(By.TAG_NAME, value='article')
 	print("Total Videos = ", len(videos))
 	contents = []

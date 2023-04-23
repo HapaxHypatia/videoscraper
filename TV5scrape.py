@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-def TV5scrape(driver):
+def TV5scrape(driver, url):
 	denyCookies = '//*[@id="didomi-notice-disagree-button"]'
 	time.sleep(3)
 	try:

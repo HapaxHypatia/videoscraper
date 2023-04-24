@@ -1,4 +1,3 @@
-from time import time
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import json
@@ -11,10 +10,12 @@ from CBFscrape import CBFscrape
 from FLEscrape import FLEscrape
 from TEFscrape import TEFscrape
 from unjourScrape import unjourScrape
-
+import time
+import json
 
 start = time.time()
-
+with open('C:\projects\listening-search\src\data.json', 'r') as f:
+	prev = len(json.load(f))
 with open("urls.txt", 'r') as f:
 	urls = [x.strip() for x in f.readlines()]
 
@@ -44,7 +45,6 @@ for url in urls:
 		print(len(YTdata), " videos found at ", url)
 		print("Data collection complete.")
 		data = data+YTdata
-		save(data)
 	if "lawlessfrench" in url:
 		LFdata = LFscrape(driver, url)
 		print(len(LFdata), " videos found at ", url)
@@ -54,39 +54,33 @@ for url in urls:
 		CBFdata = CBFscrape(driver, url)
 		print(len(CBFdata), " videos found at ", url)
 		data = data+CBFdata
-		save(data)
 	if "flevideo" in url:
 		FLEdata = FLEscrape(driver, url)
 		print(len(FLEdata), " videos found at ", url)
 		data = data+FLEdata
-		save(data)
 	if "toutenfrancais" in url:
 		TEFdata = TEFscrape(driver, url)
 		print(len(TEFdata), " videos found at ", url)
 		data = data+TEFdata
-		save(data)
 	if "1jour" in url:
 		unjourdata = unjourScrape(driver, url)
 		print(len(unjourdata), " videos found at ", url)
 		data = data+unjourdata
-		save(data)
 	if "podcastfrancaisfacile" in url:
 		PFFdata = PFFscrape(driver, url)
 		print(len(PFFdata), " videos found at ", url)
 		data = data + PFFdata
-		save(data)
 	if "rfi" in url:
 		RFIdata = RFIscrape(driver, url)
 		print(len(RFIdata), " videos found at ", url)
 		data = data + RFIdata
-		save(data)
 	if "tv5" in url:
 		TV5data = TV5scrape(driver, url)
 		print(len(TV5data), " videos found at ", url)
 		data = data + TV5data
-		save(data)
 
+if len(data) > prev:
+	save(data)
 print("Total videos found = ", len(data))
 driver.close()
-print('Completed full scrape in ', str(round(time.time()-start)/60))
-
+print('Completed test in ', str(round(time.time()-start)/60),'seconds')

@@ -13,7 +13,6 @@ def PFFscrape(driver, url):
 				except NoSuchElementException:
 					continue
 
-	print("Total Videos = ", len(videos))
 	contents = []
 	for video in videos:
 		# get data

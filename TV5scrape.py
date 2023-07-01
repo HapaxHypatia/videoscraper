@@ -9,7 +9,6 @@ def TV5scrape(driver, url):
 	time.sleep(3)
 	try:
 		driver.find_element(by=By.XPATH, value=denyCookies).click();
-		print("denied cookies")
 		time.sleep(3)
 	except (NoSuchElementException, ElementNotInteractableException):
 		pass
@@ -20,7 +19,6 @@ def TV5scrape(driver, url):
 			loadmore = driver.find_element(by=By.XPATH, value='//a[@title="Load more items"]')
 			driver.execute_script('arguments[0].click()', loadmore)
 			count += 1
-			print("loadmore clicked: ", count)
 			time.sleep(1)
 		except (NoSuchElementException, ElementNotInteractableException, StaleElementReferenceException):
 			break
@@ -49,5 +47,4 @@ def TV5scrape(driver, url):
 
 		)
 
-	print("Total Videos = ", len(contents))
 	return contents

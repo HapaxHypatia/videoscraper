@@ -4,18 +4,15 @@ import re
 
 def YTscrape(driver, url):
 	channel = url.split('@')[1].replace("/videos", "")
-	print(channel)
 	# scroll page
 	for i in range(20):
 		document_height = driver.execute_script("return document.documentElement.scrollHeight")
 		driver.execute_script(f"window.scrollTo(0, {document_height	+ 5000});")
-		print("scroll")
 		time.sleep(1)
 	time.sleep(3)
 
 	# get list of videos
 	videos = driver.find_elements(by=By.ID, value='dismissible')
-	print("Total Videos = ", len(videos))
 	contents = []
 	for video in videos:
 		# get data
@@ -23,10 +20,10 @@ def YTscrape(driver, url):
 		image = video.find_element(by=By.XPATH, value='.//*[@id="thumbnail"]/yt-image/img').get_attribute('src')
 		link = video.find_element(by=By.XPATH, value='.//*[@id="video-title-link"]').get_attribute('href')
 		date = video.find_element(by=By.XPATH, value='.//*[@id="metadata-line"]/span[2]').text
-		if 'years' in date:
-			years = int(re.findall("\d+", date)[0]) # skip videos older than 5 years
-			if years > 5:
-				break
+		# if 'years' in date:
+		# 	years = int(re.findall("\d+", date)[0]) # skip videos older than 5 years
+		# 	if years > 5:
+		# 		break
 
 		if "Easy" in url:
 			level = "Beginner"

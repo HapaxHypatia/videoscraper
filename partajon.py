@@ -8,7 +8,6 @@ def PJscrape(driver, url):
 	contents = []
 	while True:
 		videos = driver.find_elements(by=By.CLASS_NAME, value='post-wrapper')
-		print("Total Videos = ", len(videos))
 		for video in videos:
 			# get data
 			title = video.find_element(by=By.CLASS_NAME, value='entry-title').text
@@ -44,7 +43,6 @@ def PJscrape(driver, url):
 		try:
 			nextPage = driver.find_element(by=By.CSS_SELECTOR, value='.next')
 			driver.execute_script('arguments[0].click()', nextPage)
-			print('next button clicked')
 			time.sleep(4)
 		except (NoSuchElementException, ElementNotInteractableException):
 			break

@@ -3,7 +3,6 @@ import time
 
 def unjourScrape(driver, url):
 	videos = driver.find_elements(By.TAG_NAME, value='article')
-	print("Total Videos = ", len(videos))
 	contents = []
 	time.sleep(3)
 	for video in videos:

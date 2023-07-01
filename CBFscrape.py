@@ -43,6 +43,4 @@ def CBFscrape(driver, url):
 			contents += get_videos(nextPage)
 		except TimeoutException:
 			continue
-
-	print("Total Videos = ", len(contents))
 	return contents

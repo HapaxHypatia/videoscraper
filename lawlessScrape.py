@@ -1,10 +1,10 @@
 from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException
 from selenium.webdriver.common.by import By
 
+# Lawless has a security pop-up after awhile. Can't do too many of their sites in a row
 
 def LFscrape(driver, url):
 	videos = driver.find_elements(By.TAG_NAME, value='article')
-	print("Total Videos = ", len(videos))
 	contents = []
 	for video in videos:
 		# get data

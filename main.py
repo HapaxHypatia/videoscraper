@@ -48,7 +48,7 @@ try:
 	service = Service()
 	options = webdriver.ChromeOptions()
 	options.add_argument('start-maximized')
-	# options.add_argument("--headless") #doesn't open window
+	options.add_argument("--headless") #doesn't open window
 	# options.add_argument(f'--proxy-server={proxy}')
 	driver = webdriver.Chrome(service=service, options=options)
 	driver.set_page_load_timeout(60)

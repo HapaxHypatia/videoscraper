@@ -1,3 +1,6 @@
+import random
+
+from git import Repo
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from PFFscrape import PFFscrape
@@ -10,10 +13,10 @@ from FLEscrape import FLEscrape
 from TEFscrape import TEFscrape
 from partajon import PJscrape
 from unjourScrape import unjourScrape
+from iliniScrape import iliniScrape
 import time
 import json
 from datetime import datetime as dt
-from git import Repo
 
 start = time.time()
 logfile = open("logs.txt", 'a')
@@ -37,15 +40,19 @@ functions = {
 	"podcastfrancaisfacile":PFFscrape,
 	"rfi": RFIscrape,
 	"tv5": TV5scrape,
-	"partajon": PJscrape
+	"partajon": PJscrape,
+	"ilini": iliniScrape
 }
 
 try:
-	service = Service(executable_path=r'./chromedriver')
+	service = Service()
 	options = webdriver.ChromeOptions()
 	options.add_argument('start-maximized')
+	# options.add_argument("--headless") #doesn't open window
+	# options.add_argument(f'--proxy-server={proxy}')
 	driver = webdriver.Chrome(service=service, options=options)
 	driver.set_page_load_timeout(60)
+
 	data = []
 except Exception as e:
 	error_message = str(e)
@@ -74,7 +81,7 @@ unique = []
 for i in range(len(data)):
 	if data[i] not in data[i + 1:]:
 		unique.append(data[i])
-if len(data) > prev:
+if len(data) > prev-100:
 	f = open('C:\projects\listening-search\src\data.json', 'w')
 	json.dump(unique, f)
 	f.close()
@@ -96,12 +103,7 @@ if len(data) > prev:
 	repo.remotes.origin.push(repo.head)
 	logfile.write("pushed file to production\n")
 
-# TODO rfi not working at all
-# TODO Youtube only getting first 4 videos
-# TODO FLE video intermediate not finding videos
 
-
-
-logfile.write("Total videos found = {0}\n\n".format(len(data)))
+logfile.write("Total videos found = {0}\n\n".format(len(unique)))
 driver.close()
 logfile.write('Completed run in {0} seconds\n\n\n\n\n\n'.format(str((time.time()-start)//60)))

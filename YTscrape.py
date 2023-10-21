@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 import time
-import re
 
+# TODO Sometimes only grabs first 4 videos
 def YTscrape(driver, url):
 	channel = url.split('@')[1].replace("/videos", "")
 	# scroll page
@@ -13,6 +13,7 @@ def YTscrape(driver, url):
 
 	# get list of videos
 	videos = driver.find_elements(by=By.ID, value='dismissible')
+	print(len(videos))
 	contents = []
 	for video in videos:
 		# get data

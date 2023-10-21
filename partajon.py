@@ -11,7 +11,7 @@ def PJscrape(driver, url):
 		for video in videos:
 			# get data
 			title = video.find_element(by=By.CLASS_NAME, value='entry-title').text
-			link = video.find_element(by=By.CLASS_NAME, value='entry-title').get_attribute('href')
+			link = video.find_element(by=By.CLASS_NAME, value='post-title').get_attribute('href')
 			image = video.find_element(by=By.XPATH, value='.//div[1]/div/img').get_attribute('src')
 
 			description = video.find_element(by=By.XPATH, value='.//div[2]/p[1]').text
@@ -48,3 +48,6 @@ def PJscrape(driver, url):
 			break
 
 	return contents
+
+# TODO pictures not showing
+# TODO sometimes hangs and freezes forever

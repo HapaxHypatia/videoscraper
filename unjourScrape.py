@@ -1,7 +1,16 @@
+from selenium.common import NoSuchElementException, ElementNotInteractableException
 from selenium.webdriver.common.by import By
 import time
 
 def unjourScrape(driver, url):
+	time.sleep(3)
+	try:
+		driver.find_element(by=By.CLASS_NAME, value="didomi-continue-without-agreeing").click();
+		print("Denied cookies")
+		time.sleep(3)
+	except (NoSuchElementException, ElementNotInteractableException):
+		pass
+
 	videos = driver.find_elements(By.TAG_NAME, value='article')
 	contents = []
 	time.sleep(3)
